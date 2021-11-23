@@ -35,31 +35,33 @@ h79_20k_w <- construct_window_annotation(herring_79$geno, interval = 2e4)
 hws6_dist_v2.0.2_20k_df <- introgression_contrast(target="HWS6", ref_1 = "A[MF][0-9]", ref_2 = "HWS1", w_df=h79_20k_w, sample_list=herring_79$sample_list, geno=herring_79$geno)
 save(hws6_dist_v2.0.2_20k_df, file = "~/Projects/Herring/data/v2.0.2_genotypes/hws6_introgression_df_v2.0.2_20k.Rdata")
 diff_SNP_count_vec <- rowSums(hws6_dist_v2.0.2_20k_df[,6:21])/length(6:21)*2
-hws6_v2.0.2_20k_intro <- introgression_plot_2(hws6_dist_v2.0.2_20k_df, sample_list=herring_79$sample_list, snp_numbers=diff_SNP_count_vec, pdf_file="~/Projects/Herring/doc/Balsfjord/HWS6_v2.0.2_20k_intro_recalc5.pdf", min_diff = 20, snp_cutoff = 50, assoc_tresh = 8, assoc_dir = "down")
+hws6_v2.0.2_20k_intro <- introgression_plot_2(hws6_dist_v2.0.2_20k_df, sample_list=herring_79$sample_list, snp_numbers=diff_SNP_count_vec, pdf_file="~/Projects/Herring/doc/Balsfjord/HWS6_v2.0.2_20k_intro_recalc6.pdf", min_diff = 20, snp_cutoff = 50, assoc_tresh = 8, assoc_dir = "down")
+hws6_v2.0.2_20k_intro_plot <- introgression_plot_2(hws6_dist_v2.0.2_20k_df, sample_list=herring_79$sample_list, snp_numbers=diff_SNP_count_vec, pdf_file="~/Projects/Herring/doc/Balsfjord/HWS6_v2.0.2_20k_intro_no_highlight.pdf", min_diff = 20, snp_cutoff = 50, assoc_tresh = 8, assoc_dir = "none")
+
 
 #White Sea sample
 hws3_dist_v2.0.2_20k_df <- introgression_contrast(target="HWS3", ref_1 = "A[MF][0-9]", ref_2 = "HWS1", w_df=h79_20k_w, sample_list=herring_79$sample_list, geno=herring_79$geno)
 save(hws3_dist_v2.0.2_20k_df, file = "~/Projects/Herring/data/Balsfjord/hws3_introgression_df_v2.0.2_20k.Rdata")
 hws3_diff_SNP_count_vec <- rowSums(hws3_dist_v2.0.2_20k_df[,6:21])/length(6:21)*2
-hws3_v2.0.2_20k_intro <- introgression_plot_2(hws3_dist_v2.0.2_20k_df, sample_list=herring_79$sample_list, snp_numbers=hws3_diff_SNP_count_vec, pdf_file="~/Projects/Herring/doc/Balsfjord/HWS3_v2.0.2_20k_intro.pdf", min_diff = 20, snp_cutoff = 50, assoc_tresh = 8, assoc_dir = "down")
+hws3_v2.0.2_20k_intro <- introgression_plot_2(hws3_dist_v2.0.2_20k_df, sample_list=herring_79$sample_list, snp_numbers=hws3_diff_SNP_count_vec, pdf_file="~/Projects/Herring/doc/Balsfjord/HWS3_v2.0.2_20k_intro_recalc.pdf", min_diff = 20, snp_cutoff = 50, assoc_tresh = 8, assoc_dir = "down")
 
 #Pechora Sea sample
 hws2_dist_v2.0.2_20k_df <- introgression_contrast(target="HWS2", ref_1 = "A[MF][0-9]", ref_2 = "HWS1", w_df=h79_20k_w, sample_list=herring_79$sample_list, geno=herring_79$geno)
 save(hws2_dist_v2.0.2_20k_df, file = "~/Projects/Herring/data/Balsfjord/hws2_introgression_df_v2.0.2_20k.Rdata")
 hws2_diff_SNP_count_vec <- rowSums(hws2_dist_v2.0.2_20k_df[,6:21])/length(6:21)*2
-hws2_v2.0.2_20k_intro <- introgression_plot_2(hws2_dist_v2.0.2_20k_df, sample_list=herring_79$sample_list, snp_numbers=hws2_diff_SNP_count_vec, pdf_file="~/Projects/Herring/doc/Balsfjord/HWS2_v2.0.2_20k_intro.pdf", min_diff = 20, snp_cutoff = 50, assoc_tresh = 8, assoc_dir = "down")
+hws2_v2.0.2_20k_intro <- introgression_plot_2(hws2_dist_v2.0.2_20k_df, sample_list=herring_79$sample_list, snp_numbers=hws2_diff_SNP_count_vec, pdf_file="~/Projects/Herring/doc/Balsfjord/HWS2_v2.0.2_20k_intro_recalc.pdf", min_diff = 20, snp_cutoff = 50, assoc_tresh = 8, assoc_dir = "down")
 
 #KB Spring sample
 hws4_dist_v2.0.2_20k_df <- introgression_contrast(target="HWS4", ref_1 = "A[MF][0-9]", ref_2 = "HWS1", w_df=h79_20k_w, sample_list=herring_79$sample_list, geno=herring_79$geno)
 save(hws4_dist_v2.0.2_20k_df, file = "~/Projects/Herring/data/Balsfjord/hws4_introgression_df_v2.0.2_20k.Rdata")
 hws4_diff_SNP_count_vec <- rowSums(hws4_dist_v2.0.2_20k_df[,6:21])/length(6:21)*2
-hws4_v2.0.2_20k_intro <- introgression_plot_2(hws4_dist_v2.0.2_20k_df, sample_list=herring_79$sample_list, snp_numbers=hws4_diff_SNP_count_vec, pdf_file="~/Projects/Herring/doc/Balsfjord/HWS4_v2.0.2_20k_intro.pdf", min_diff = 20, snp_cutoff = 50, assoc_tresh = 8, assoc_dir = "down")
+hws4_v2.0.2_20k_intro <- introgression_plot_2(hws4_dist_v2.0.2_20k_df, sample_list=herring_79$sample_list, snp_numbers=hws4_diff_SNP_count_vec, pdf_file="~/Projects/Herring/doc/Balsfjord/HWS4_v2.0.2_20k_intro_recalc.pdf", min_diff = 20, snp_cutoff = 50, assoc_tresh = 8, assoc_dir = "down")
 
 #KB Autumn sample
 hws5_dist_v2.0.2_20k_df <- introgression_contrast(target="HWS5", ref_1 = "A[MF][0-9]", ref_2 = "HWS1", w_df=h79_20k_w, sample_list=herring_79$sample_list, geno=herring_79$geno)
 save(hws5_dist_v2.0.2_20k_df, file = "~/Projects/Herring/data/Balsfjord/hws5_introgression_df_v2.0.2_20k.Rdata")
 hws5_diff_SNP_count_vec <- rowSums(hws5_dist_v2.0.2_20k_df[,6:21])/length(6:21)*2
-hws5_v2.0.2_20k_intro <- introgression_plot_2(hws5_dist_v2.0.2_20k_df, sample_list=herring_79$sample_list, snp_numbers=hws5_diff_SNP_count_vec, pdf_file="~/Projects/Herring/doc/Balsfjord/HWS5_v2.0.2_20k_intro.pdf", min_diff = 20, snp_cutoff = 50, assoc_tresh = 8, assoc_dir = "down")
+hws5_v2.0.2_20k_intro <- introgression_plot_2(hws5_dist_v2.0.2_20k_df, sample_list=herring_79$sample_list, snp_numbers=hws5_diff_SNP_count_vec, pdf_file="~/Projects/Herring/doc/Balsfjord/HWS5_v2.0.2_20k_intro_recalc.pdf", min_diff = 20, snp_cutoff = 50, assoc_tresh = 8, assoc_dir = "down")
 
 
 ratio_cols <- grep("ratio", names(hws6_v2.0.2_20k_intro$dist))
@@ -145,7 +147,6 @@ atl_20k_intro_unlist$haplo_id = names(atl_20k_intro_unlist)
 pac_20k_intro_unlist <- unlist(intro_20k_lists$pac_red)
 pac_20k_intro_unlist$intro_type = "Pacific"
 pac_20k_intro_unlist$haplo_id = names(pac_20k_intro_unlist)
-
 
 write.table(x = c(atl_20k_intro_unlist, pac_20k_intro_unlist), quote = F, col.names = T, row.names = F, sep = "\t", file = "~/Projects/Herring/data/Balsfjord/intro_20k_all.txt")
 
@@ -252,6 +253,8 @@ t.test(box_plot_df$dxy ~ box_plot_df$win_type, subset =box_plot_df$win_type != "
 
 t.test(Ch_v2_recomb_prof_GR$RR ~ Ch_v2_recomb_prof_GR$recurring, subset = Ch_v2_recomb_prof_GR$recurring != "pac" )
 t.test(Ch_v2_recomb_prof_GR$RR ~ Ch_v2_recomb_prof_GR$recurring, subset = Ch_v2_recomb_prof_GR$recurring != "atl" )
+
+
 
 
 
@@ -392,9 +395,10 @@ fst_v_intro_plot("chr15", cov_df = pac_intro_cov_20k, full_Fst = PvA_Fst, target
 fst_v_intro_plot("chr18", cov_df = pac_intro_cov_20k, full_Fst = PvA_Fst, target_reg_GR = recurring_intro_pac_GR)
 
 #Combined, all chromosomes
-pdf("~/Projects/Herring/doc/Balsfjord/Fst_v_introgression.pdf", width = 12, height = 5)
+#pdf("~/Projects/Herring/doc/Balsfjord/Fst_v_introgression.pdf", width = 12, height = 5)
+pdf("~/Projects/Herring/doc/Balsfjord/Fst_v_introgression_recalc.pdf", width = 12, height = 5)
 for(chr in paste0("chr", 1:26)){
-  fst_v_intro_plot2(target_chr = chr, cov_df1 = atl_intro_cov_20k, cov_df2 = pac_intro_cov_20k, full_Fst = PvA_Fst, target_reg_GR1 = recurring_intro_GR , target_reg_GR2 = recurring_intro_pac_GR)
+  fst_v_intro_plot3(target_chr = chr, cov_df1 = atl_intro_cov_20k, cov_df2 = pac_intro_cov_20k, full_Fst = PvA_Fst, target_reg_GR1 = recurring_intro_GR , target_reg_GR2 = recurring_intro_pac_GR)
 }
 dev.off()
 
@@ -568,9 +572,11 @@ tip_col_vec[grep("Baltic", tree$tip.label)] <- "darkorange4"
 tip_col_vec[grep("Landvik", tree$tip.label)] <- "darkorange1"
 
 tip_col_vec[grep("HWS", tree$tip.label)] <- "olivedrab4"
-tip_col_vec[grep("HWS1", tree$tip.label)] <- "steelblue2"
-tip_col_vec[grep("PB8", tree$tip.label)] <- "olivedrab3"
+tip_col_vec[grep("HWS1", tree$tip.label)] <- "olivedrab2"
+tip_col_vec[grep("PB8", tree$tip.label)] <- "steelblue"
 tip_col_vec[grep("HWS6", tree$tip.label)] <- "darkorchid"
+tip_col_vec[grep("HWS2", tree$tip.label)] <- "olivedrab3"
+
 
 plot_tree <- tree 
 plot_tree$tip.label <- rep("\U2022", length(tree$tip.label))
@@ -578,6 +584,8 @@ plot_tree$tip.label <- rep("\U2022", length(tree$tip.label))
 
 png(file = "~/Projects/Herring/doc/Balsfjord/pool_tree_dots.png", height = 1000, width = 1000)
 plot.phylo(plot_tree, type="unrooted", lab4ut = "axial", tip.color = tip_col_vec, cex = 3, edge.width = 2.5)
+add.scale.bar(length = NULL, ask = FALSE,
+              lwd = 1, lcol = "black")
 dev.off()
 
 #tip_color_vec <- rep("black", times = length(sample_list))
@@ -662,7 +670,7 @@ dev.off()
 balsfjord_pool_vec <- c(grep("Pacific|HWS", names(pool_freq), invert = T), grep("HWS", names(pool_freq)), grep("Pacific", names(pool_freq)))
 
 balsfjord_pool_vec <- balsfjord_pool_vec[!(balsfjord_pool_vec %in% 1:2)]
-#correcting miss-spelled names
+#correcting miss-spelled names & adding details
 plot_pool_names <- names(pool_freq)[balsfjord_pool_vec]
 plot_pool_names <- sub("Pacific_Pacific", "Strait_of_Georgia_Pacific", plot_pool_names)
 plot_pool_names <- sub("Galve", "Gävle", plot_pool_names)
@@ -691,12 +699,16 @@ plot_pool_names <- sub("HGS21_Hebrides_Atlantic_Mixed", "HGS21_West_of_Hebrides_
 plot_pool_names <- sub("HGS17_IsleOfMan_IrishSea_Autumn", "HGS17_Douglas_Bank (Isle_of_Man)_IrishSea_Autumn", plot_pool_names)
 #plot_pool_names <- sub("HGS10_Downs_EnglishChannel_Winter", "HGS10_Downs_Atlantic_Winter", plot_pool_names)
 plot_pool_names <- sub("N_NorthSea_Atlantic_Autumn", "N_North Sea_Atlantic_Autumn", plot_pool_names)
-plot_pool_names <- sub("HWS4_KandalakshaBay_WhiteSea", "HWS4_KandalakshaBay_WhiteSea_Spring", plot_pool_names)
-plot_pool_names <- sub("HWS5_KandalakshaBay_WhiteSea", "HWS5_KandalakshaBay_WhiteSea_Summer", plot_pool_names)
+plot_pool_names <- sub("HWS4_KandalakshaBay_WhiteSea", "HWS4_KandalakshaBay_ArcticBasin_Spring", plot_pool_names)
+plot_pool_names <- sub("HWS5_KandalakshaBay_WhiteSea", "HWS5_KandalakshaBay_ArcticBasin_Summer", plot_pool_names)
 plot_pool_names <- sub("Q_Norway_Atlantic_Atlantic_Spring", "Q_Norway_Atlantic_Spring", plot_pool_names)
-plot_pool_names <- sub("HWS3_WhiteSea_WhiteSea", "HWS3_White Sea_WhiteSea", plot_pool_names)
+plot_pool_names <- sub("HWS3_WhiteSea_WhiteSea", "HWS3_Onega Bay_ArcticBasin_Summer", plot_pool_names)
+plot_pool_names <- sub("HWS6_Balsfjord_Atlantic", "HWS6_Balsfjord_Atlantic_Spring", plot_pool_names)
+plot_pool_names <- sub("HWS1_Japan_SeaOfJapan", "HWS1_Sakhalin_SeaOfJapan", plot_pool_names)
+plot_pool_names <- sub("HWS2_PechoraSea_BarentsSea", "HWS2_PechoraSea_ArcticBasin", plot_pool_names)
 
-plot_pool_names <- gsub("_(WhiteSea|Barents|Atlantic|Baltic|Pacific|Irish|NorthSea|SeaOfJapan|English|Spring|Summer|Autumn|Winter)", ", \\1", plot_pool_names)
+
+plot_pool_names <- gsub("_(WhiteSea|Barents|Atlantic|Baltic|Pacific|Irish|NorthSea|SeaOfJapan|English|Spring|Summer|Autumn|Winter|ArcticBasin)", ", \\1", plot_pool_names)
 
 plot_pool_names <- gsub("([a-z])([A-Z])", "\\1_\\2", plot_pool_names)
 
@@ -704,10 +716,13 @@ plot_pool_names <- sub("[A-Z0-9]+_", "",plot_pool_names)
 plot_pool_names <- gsub("_", " ", plot_pool_names)
 
 pool_name_df <- data.frame(raw = names(pool_freq)[balsfjord_pool_vec], polished = plot_pool_names, stringsAsFactors = F)
-save(pool_name_df, file = "~/Projects/Herring/data/Balsfjord/pool_names.RData")
+#save(pool_name_df, file = "~/Projects/Herring/data/Balsfjord/pool_names.RData") #v9 version
+save(pool_name_df, file = "~/Projects/Herring/data/Balsfjord/pool_names_v10.RData")
 
 #atl_pdf <- paste0("~/Projects/Herring/doc/Balsfjord/heatmaps/Supp_fig_S6/Atlantic_rec_reg_flip_HM.pdf")
-atl_pdf <- paste0("~/Projects/Herring/doc/Balsfjord/heatmaps/Supp_fig_S6/Atlantic_rec_reg_flip_rename_HM.pdf")
+#atl_pdf <- paste0("~/Projects/Herring/doc/Balsfjord/heatmaps/Supp_fig_S6/Atlantic_rec_reg_flip_rename_HM.pdf")
+#atl_pdf <- paste0("~/Projects/Herring/doc/Balsfjord/heatmaps/Supp_fig_S6/Atlantic_rec_reg_flip_rename_no_SNP_HM.pdf")
+atl_pdf <- paste0("~/Projects/Herring/doc/Balsfjord/heatmaps/Supp_fig_S6/Atlantic_rec_reg_flip_rename_no_SNP_HM_v10.pdf")
 pdf(atl_pdf, width = 10, height = 10)
 for(i in 1:length(recurring_intro_GR)){
   tmp_freq <- pool_freq[pool_freq$CHROM == as.character(recurring_intro_GR@seqnames[i]) & pool_freq$POS > recurring_intro_GR@ranges@start[i] & pool_freq$POS < recurring_intro_GR@ranges@start[i] + recurring_intro_GR@ranges@width[i],]
@@ -717,12 +732,16 @@ for(i in 1:length(recurring_intro_GR)){
   #tmp_pdf <- gsub("[:-]", "_", tmp_pdf)
   #pool_freq_hm(tmp_freq, pdf_file = tmp_pdf, pool_order_vec = balsfjord_pool_vec)
   tmp_reg_name <- paste0(recurring_intro_GR[i]@seqnames, ": ", round(recurring_intro_GR[i]@ranges@start/1e6, digits = 2), " to ",round((recurring_intro_GR[i]@ranges@start + recurring_intro_GR[i]@ranges@width)/1e6, digits = 2), " Mb")
-  pool_freq_hm_v2(tmp_freq, pool_order_vec = balsfjord_pool_vec, reg_name = tmp_reg_name, row_lab_vec = plot_pool_names, margins = c(12, 15))
+  #pool_freq_hm_v2(tmp_freq, pool_order_vec = balsfjord_pool_vec, reg_name = tmp_reg_name, row_lab_vec = plot_pool_names, margins = c(12, 15))
+  pool_freq_hm_v3(tmp_freq, pool_order_vec = balsfjord_pool_vec, reg_name = tmp_reg_name, row_lab_vec = plot_pool_names, margins = c(12, 15))
 }
 dev.off()
 
 #pac_pdf <- paste0("~/Projects/Herring/doc/Balsfjord/heatmaps/Supp_fig_S6/Pacific_rec_reg_flip_HM.pdf")
-pac_pdf <- paste0("~/Projects/Herring/doc/Balsfjord/heatmaps/Supp_fig_S6/Pacific_rec_reg_flip_rename_HM.pdf")
+#pac_pdf <- paste0("~/Projects/Herring/doc/Balsfjord/heatmaps/Supp_fig_S6/Pacific_rec_reg_flip_rename_HM.pdf")
+#pac_pdf <- paste0("~/Projects/Herring/doc/Balsfjord/heatmaps/Supp_fig_S6/Pacific_rec_reg_flip_rename_no_SNP_HM.pdf")
+pac_pdf <- paste0("~/Projects/Herring/doc/Balsfjord/heatmaps/Supp_fig_S6/Pacific_rec_reg_flip_rename_no_SNP_HM_v10.pdf")
+
 pdf(pac_pdf, height = 10, width = 10)
 for(i in 1:length(recurring_intro_pac_GR)){
   tmp_freq <- pool_freq[pool_freq$CHROM == as.character(recurring_intro_pac_GR@seqnames[i]) & pool_freq$POS > recurring_intro_pac_GR@ranges@start[i] & pool_freq$POS < recurring_intro_pac_GR@ranges@start[i] + recurring_intro_pac_GR@ranges@width[i],]
@@ -732,7 +751,8 @@ for(i in 1:length(recurring_intro_pac_GR)){
   #tmp_pdf <- gsub("[:-]", "_", tmp_pdf)
   #pool_freq_hm(tmp_freq, pdf_file = tmp_pdf, pool_order_vec = balsfjord_pool_vec)
   tmp_reg_name <- paste0(recurring_intro_pac_GR[i]@seqnames, ": ", round(recurring_intro_pac_GR[i]@ranges@start/1e6, digits = 2), " to ",round((recurring_intro_pac_GR[i]@ranges@start + recurring_intro_pac_GR[i]@ranges@width)/1e6, digits = 2), " Mb")
-  pool_freq_hm_v2(tmp_freq, pool_order_vec = balsfjord_pool_vec, reg_name = tmp_reg_name,  row_lab_vec = plot_pool_names, margins = c(12, 15))
+  #pool_freq_hm_v2(tmp_freq, pool_order_vec = balsfjord_pool_vec, reg_name = tmp_reg_name,  row_lab_vec = plot_pool_names, margins = c(12, 15))
+  pool_freq_hm_v3(tmp_freq, pool_order_vec = balsfjord_pool_vec, reg_name = tmp_reg_name,  row_lab_vec = plot_pool_names, margins = c(12, 15))
 }
 dev.off()
 
@@ -762,16 +782,78 @@ sum(unlist(HWS5_intro_20k_lists$atl_red)@ranges@width)/1e6
 
 HWS_tot <- c(intro_20k_lists$atl_red, HWS2_intro_20k_lists$atl_red, HWS3_intro_20k_lists$atl_red, HWS4_intro_20k_lists$atl_red,HWS5_intro_20k_lists$atl_red)
 HWS_tot_Atl_cov <- calc_cov(HWS_tot)
+HWS_tot_GR <- GRanges(seqnames = HWS_tot_Atl_cov$group_name, ranges = IRanges(start = HWS_tot_Atl_cov$start, end =  HWS_tot_Atl_cov$end))
+HWS_tot_GR$cov <- HWS_tot_Atl_cov$cov
+HWS_tot_GR$global_start <- HWS_tot_Atl_cov$global_start
+HWS_tot_v_Atl_rec <- findOverlaps(HWS_tot_GR, recurring_intro_GR)
+HWS_tot_v_Atl_rec_GR <- HWS_tot_GR[HWS_tot_v_Atl_rec@from]
+
+WhiteSea_tot <- c(HWS2_intro_20k_lists$atl_red, HWS3_intro_20k_lists$atl_red, HWS4_intro_20k_lists$atl_red,HWS5_intro_20k_lists$atl_red)
+WhiteSea_cov <- calc_cov(WhiteSea_tot)
+WhiteSea_tot_GR <- GRanges(seqnames = WhiteSea_cov$group_name, ranges = IRanges(start = WhiteSea_cov$start, end =  WhiteSea_cov$end))
+WhiteSea_tot_GR$cov <- WhiteSea_cov$cov
+WhiteSea_tot_GR$global_start <- WhiteSea_cov$global_start
+WhiteSea_tot_GR$global_end <- WhiteSea_cov$global_end
+
+atl_intro_cov_20k_GR <- GRanges(seqnames = atl_intro_cov_20k$group_name, ranges = IRanges(start = atl_intro_cov_20k$start, end =  atl_intro_cov_20k$end))
+atl_intro_cov_20k_GR$cov <- atl_intro_cov_20k$cov
+atl_intro_cov_20k_GR$global_start <- atl_intro_cov_20k$global_start
+
+WS_v_Balsf_cov <- findOverlaps(WhiteSea_tot_GR, atl_intro_cov_20k_GR)
+
+WhiteSea_expanded_GR <- WhiteSea_tot_GR[WS_v_Balsf_cov@from]
+WhiteSea_expanded_GR$HWS6_chr <- atl_intro_cov_20k_GR[WS_v_Balsf_cov@to]@seqnames
+WhiteSea_expanded_GR$HWS6_start <- atl_intro_cov_20k_GR[WS_v_Balsf_cov@to]@ranges@start
+WhiteSea_expanded_GR$HWS6_end <- atl_intro_cov_20k_GR[WS_v_Balsf_cov@to]@ranges@start + atl_intro_cov_20k_GR[WS_v_Balsf_cov@to]@ranges@width
+WhiteSea_expanded_GR$HWS6_cov <- atl_intro_cov_20k_GR[WS_v_Balsf_cov@to]$cov
+cor.test(x = WhiteSea_expanded_GR$HWS6_cov, y = WhiteSea_expanded_GR$cov)
+
+h79_20k_w_GR$global_start <- h79_20k_w$cumulative_start
+h79_20k_w_GR$global_end <- h79_20k_w$cumulative_end
+WS_v_20k_w <- findOverlaps(WhiteSea_tot_GR, h79_20k_w_GR)
+HWS6_v_20k_w <- findOverlaps(atl_intro_cov_20k_GR, h79_20k_w_GR)
+
+h79_20k_w_GR$WS_cov <- 0
+h79_20k_w_GR$WS_cov[WS_v_20k_w@to] <- WhiteSea_tot_GR[WS_v_20k_w@from]$cov
+h79_20k_w_GR$Balsf_cov <- 0
+h79_20k_w_GR$Balsf_cov[HWS6_v_20k_w@to] <- atl_intro_cov_20k_GR[HWS6_v_20k_w@from]$cov
+
+plot(y = h79_20k_w_GR$WS_cov, x = h79_20k_w_GR$Balsf_cov)
+abline(lm(h79_20k_w_GR$WS_cov~h79_20k_w_GR$Balsf_cov))
 
 pdf("~/Projects/Herring/doc/Balsfjord/Total_intro_cov.pdf", width = 12)
 plot(x = HWS_tot_Atl_cov$global_start, y = HWS_tot_Atl_cov$cov, type = "n", main = "Introgression \"Coverage\"", xlab = "", ylab = "Number of haplotypes", ylim = c(0,40)) 
 segments(x0 = HWS_tot_Atl_cov$global_start, x1 = HWS_tot_Atl_cov$global_end, y0 = HWS_tot_Atl_cov$cov, lwd = 4, col = HWS_tot_Atl_cov$col)
+segments(x0 = HWS_tot_Atl_cov$global_start[HWS_tot_v_Atl_rec@from], x1 = HWS_tot_Atl_cov$global_end[HWS_tot_v_Atl_rec@from], y0 = HWS_tot_Atl_cov$cov[HWS_tot_v_Atl_rec@from], lwd = 6, col = "darkorchid")
+
 for(i in 1:26){
   t_chr <- paste0("chr", i)
   plot(x = HWS_tot_Atl_cov$start[HWS_tot_Atl_cov$group_name ==t_chr], y = HWS_tot_Atl_cov$cov[HWS_tot_Atl_cov$group_name == t_chr], type = "n", main = paste0(t_chr, "; Total Introgression \"Coverage\""), xlab = "", ylab = "Number of haplotypes", ylim = c(0,40)) 
   segments(x0 = HWS_tot_Atl_cov$start[HWS_tot_Atl_cov$group_name ==t_chr], x1 = HWS_tot_Atl_cov$end[HWS_tot_Atl_cov$group_name == t_chr], y0 = HWS_tot_Atl_cov$cov[HWS_tot_Atl_cov$group_name == t_chr], lwd = 4, col = HWS_tot_Atl_cov$col[HWS_tot_Atl_cov$group_name == t_chr])
+  segments(x0 = HWS_tot_v_Atl_rec_GR[HWS_tot_v_Atl_rec_GR@seqnames ==t_chr]@ranges@start, x1 = HWS_tot_v_Atl_rec_GR[HWS_tot_v_Atl_rec_GR@seqnames ==t_chr]@ranges@start + HWS_tot_v_Atl_rec_GR[HWS_tot_v_Atl_rec_GR@seqnames ==t_chr]@ranges@width, y0 = HWS_tot_v_Atl_rec_GR[HWS_tot_v_Atl_rec_GR@seqnames ==t_chr]$cov, lwd = 6, col = "darkorchid")
 }
 dev.off()
+
+pdf("~/Projects/Herring/doc/Balsfjord/WhiteSea_intro_cov.pdf", width = 12)
+plot(x = WhiteSea_cov$global_start, y = WhiteSea_cov$cov, type = "n", main = "Introgression \"Coverage\"", xlab = "", ylab = "Number of haplotypes", ylim = c(-10,40)) 
+segments(x0 = WhiteSea_cov$global_start, x1 = WhiteSea_cov$global_end, y0 = WhiteSea_cov$cov, lwd = 4, col = WhiteSea_cov$col)
+rect(xleft = HWS_tot_Atl_cov$global_start[HWS_tot_v_Atl_rec@from], xright = HWS_tot_Atl_cov$global_end[HWS_tot_v_Atl_rec@from], ytop = 40, ybottom = -11, col = "darkorchid", border = NA)
+segments(x0 = atl_intro_cov_20k$global_start, x1 = atl_intro_cov_20k$global_end, y0 = -atl_intro_cov_20k$cov, lwd = 4, col = atl_intro_cov_20k$col)
+abline(h = 0, col = "black", lwd = 3)
+
+for(i in 1:26){
+  t_chr <- paste0("chr", i)
+  plot(x = WhiteSea_cov$start[WhiteSea_cov$group_name ==t_chr], y = WhiteSea_cov$cov[WhiteSea_cov$group_name == t_chr], type = "n", main = paste0(t_chr, "; Total Introgression \"Coverage\""), xlab = "", ylab = "Number of haplotypes", ylim = c(-10,40)) 
+  if(sum(HWS_tot_v_Atl_rec_GR@seqnames ==t_chr) > 0){
+    rect(xleft = HWS_tot_v_Atl_rec_GR[HWS_tot_v_Atl_rec_GR@seqnames ==t_chr]@ranges@start, xright = HWS_tot_v_Atl_rec_GR[HWS_tot_v_Atl_rec_GR@seqnames ==t_chr]@ranges@start + HWS_tot_v_Atl_rec_GR[HWS_tot_v_Atl_rec_GR@seqnames ==t_chr]@ranges@width, ytop = 40, ybottom = -11, col = "darkorchid", border = NA)
+  }
+  segments(x0 = WhiteSea_cov$start[WhiteSea_cov$group_name ==t_chr], x1 = WhiteSea_cov$end[WhiteSea_cov$group_name == t_chr], y0 = WhiteSea_cov$cov[WhiteSea_cov$group_name == t_chr], lwd = 4, col = WhiteSea_cov$col[WhiteSea_cov$group_name == t_chr])
+  segments(x0 = atl_intro_cov_20k$start[atl_intro_cov_20k$group_name ==t_chr], x1 = atl_intro_cov_20k$end[atl_intro_cov_20k$group_name ==t_chr], y0 = -atl_intro_cov_20k$cov[atl_intro_cov_20k$group_name ==t_chr], lwd = 4, col = atl_intro_cov_20k$col[atl_intro_cov_20k$group_name ==t_chr])
+  abline(h = 0, col = "black", lwd = 3)
+}
+dev.off()
+
+
 
 h79_20k_w_GR <- GRanges(seqnames = h79_20k_w$scaffold, ranges = IRanges(start = h79_20k_w$start, end =  h79_20k_w$stop))
 tot_rec_win_df <- HWS_tot_Atl_cov[HWS_tot_Atl_cov$cov >= 25,]
@@ -780,7 +862,9 @@ tot_rec_win_hits <- findOverlaps(h79_20k_w_GR, tot_rec_win_GR)
 h79_20k_w_GR[tot_rec_win_hits@from]
 plot_top_regions_2(top_pos = tot_rec_win_hits@from, win_df = h79_20k_w, geno = herring_79$geno, sample_list = herring_79$sample_list, plot_dir = "~/Projects/Herring/doc/Balsfjord/HapDist_v2.0.2/Total_recurring_windows/", snp_col = "blue")
 
-
+pdf("~/Projects/Herring/doc/Balsfjord/WhiteSea_v_HWS6_cov_box.pdf")
+boxplot(h79_20k_w_GR$WS_cov~h79_20k_w_GR$Balsf_cov)
+dev.off()
 
 #Comparing age with frequency
 atl_age_GR <- GRanges(names(atl_age_vec), age = atl_age_vec) #, rec = F
@@ -931,6 +1015,34 @@ wilcox.test(PvA_GR$pac_intro_cov[unique(Mito_GO_gene_hits@to)], PvA_GR$pac_intro
 
 
 #Support functions
+pool_freq_hm_v3 <- function(freq_df, pdf_file = NULL, pool_order_vec, hm_col = c("blue4", "gold1"), margins = c(12,12), reg_name = NULL, row_lab_vec = NULL, ...){
+  if(!is.null(pdf_file)) {
+    pdf(file = pdf_file, height = 10, width = 10)
+  }
+  par(xpd = NA)
+  if(is.null(row_lab_vec)){
+    row_lab_vec <- sub("[A-Z0-9]+_", "", colnames(freq_df)[pool_order_vec])
+  }
+  
+  target_snp_id <- rownames(freq_df)
+  #pool_order_vec <- c(17, 12, 20, 6, 7, 8, 18, 5, 4, 21, 19, 10, 9, 3, 2, 11, 14, 15, 16, 13, 1)
+  cr <- colorRamp(hm_col)
+  crp = colorRampPalette(colors = hm_col)(500)
+  col_colors <- rep("black", dim(freq_df)[1])
+  col_colors[freq_df$NonSyn] <- "darkorchid"
+  heatmap(t(as.matrix(freq_df[,pool_order_vec])), scale = "none", Colv = NA, Rowv = NA, labCol = rep("", length(target_snp_id)), labRow = row_lab_vec, col = crp, margins = margins, ...) #ColSideColors = col_colors
+  scale_x_vec <- seq(from = par("usr")[1], to = par("usr")[2]*0.5, length.out = 505)
+  rect(ybottom = par("usr")[3] - (par("usr")[4]-par("usr")[3])*0.00, xleft = scale_x_vec[-(501:505)], ytop = par("usr")[3] + (par("usr")[4] - par("usr")[3])*0.02, xright =  scale_x_vec[-(1:5)], col = rgb(cr((1:500)/500), maxColorValue=255), border = NA)
+  text(x=scale_x_vec[c(10,253,505)], y = par("usr")[3] - (par("usr")[4]-par("usr")[3])*0.04, labels = paste0(c(0, 50, 100), "%"))
+  if(!is.null(reg_name)) {
+    text(x=scale_x_vec[253], y = par("usr")[3] + (par("usr")[4]-par("usr")[3])*0.05, labels = reg_name, cex = 1.3)
+  }
+  if(!is.null(pdf_file)) {
+    dev.off()
+  }
+  #return(par("usr"))
+}
+
 pool_freq_hm_v2 <- function(freq_df, pdf_file = NULL, pool_order_vec, hm_col = c("blue4", "gold1"), margins = c(12,12), reg_name = NULL, row_lab_vec = NULL, ...){
   if(!is.null(pdf_file)) {
     pdf(file = pdf_file, height = 10, width = 10)
@@ -958,7 +1070,6 @@ pool_freq_hm_v2 <- function(freq_df, pdf_file = NULL, pool_order_vec, hm_col = c
   }
   #return(par("usr"))
 }
-
 
 SNP_eff_intersect <- function(target_GR, non_ann_df, ann_df){
   tmp_freq <- non_ann_df[non_ann_df$CHROM == as.character(target_GR@seqnames) & non_ann_df$POS > target_GR@ranges@start & non_ann_df$POS < target_GR@ranges@start + target_GR@ranges@width,]
@@ -1048,8 +1159,6 @@ plot_top_regions_3 <- function(top_pos, win_df, geno, sample_list = NULL, plot_d
   }
   return(invisible(list(hclust = hclust_list, dist_mat = dist_list)))
 }
-
-
 
 transcript_extraction <- function(transcript_id, ann_obj, sprat_target, sprat_dir, missense_seq = NULL){
   tr_GR <- ann_obj[ann_obj$type == "exon" & ann_obj$transcript_id == transcript_id]
@@ -1159,8 +1268,6 @@ herring_vcf_extract <- function(herring_GR, herring_samples = c("BM15_HastKar_Ba
   return(raw_seq_list)
 }
 
-
-
 calc_cov <- function(GR_list, size_df = Ch_v2.0.2_sizes){
   cov_obj <- coverage(unlist(GR_list))
   cov_df <- as.data.frame(ranges(cov_obj))
@@ -1251,6 +1358,47 @@ fst_v_intro_plot2 <- function(target_chr, cov_df1, cov_df2, full_Fst, target_reg
   abline(h = Fst_cutoff + 1.3, col = "grey40")
 }
 
+fst_v_intro_plot3 <- function(target_chr, cov_df1, cov_df2, full_Fst, target_reg_GR1, target_reg_GR2, Fst_cutoff = 0.6, size_df = Ch_v2.0.2_sizes, flank_ext = -1){
+  #target_chr <- "chr23"
+  high_Fst <- which(full_Fst$AtlPac_Fst > Fst_cutoff)
+  high_Fst_GR <- GRanges(full_Fst$chr, ranges = IRanges(start = full_Fst$BIN_START, end = full_Fst$BIN_END))[high_Fst]
+  T1_v_high_Fst <- findOverlaps(target_reg_GR1, high_Fst_GR, maxgap = flank_ext)
+  T2_v_high_Fst <- findOverlaps(target_reg_GR2, high_Fst_GR, maxgap = flank_ext)
+  high_Fst_df <- as.data.frame(high_Fst_GR, stringsAsFactors = F)
+  #high_Fst_df[,"global_start"] <- high_Fst_df[,"start"] + size_df[match(high_Fst_df[, "seqnames"], size_df[,"name"]), "offset"]
+  #high_Fst_df[,"global_end"] <-  high_Fst_df[,"end"] + size_df[match(high_Fst_df[, "seqnames"], size_df[,"name"]), "offset"]
+  high_Fst_df[,"T1_rec_overlap"] <- F
+  high_Fst_df[T1_v_high_Fst@to,"T1_rec_overlap"] <- T
+  high_Fst_df[,"T2_rec_overlap"] <- F
+  high_Fst_df[T2_v_high_Fst@to,"T2_rec_overlap"] <- T
+  
+  plot(x = 1, y = 1, type = "n", main = paste("Introgression vs Fst;", target_chr ), xlab = "Position (Mb)", ylab = "", ylim = c(0,2.8), xlim = c(0,size_df[match(target_chr, size_df[,"name"]), "size"]), axes = F)
+  axis(1, labels = seq(from = 0, to = 35, by = 5), at = seq(from = 0, to = 35, by = 5)*1e6)
+  axis(2, pos = par("usr")[1], at = c(0,4,8)/8, labels = c(0,4,8), las = 2)
+  mtext(2, line = 2.5, at = 4/8, text = "Number of HSRs")
+  
+  axis(2, pos = par("usr")[1], at =  c(0,0.5,1) + 1.3, labels = c(0,0.5,1), las = 2)
+  mtext(2, line = 2.5, at = 0.5 + 1.3, text = "Fst")
+  
+  abline(h = c(1.05, 1.25), col = "grey50")
+  y_range <- par("usr")[4] - par("usr")[3]
+  x_range <- par("usr")[2] - par("usr")[1]
+  x_level <- 0.93
+  text(x = par("usr")[1] + c(0.09, 0.42,0.83)*x_range, y = par("usr")[3] + rep(x_level + 0.04 ,3)*y_range, labels = c("Top track", "Middle track", "Bottom track"))
+  legend(x = par("usr")[1] + 0.0*x_range, y = par("usr")[3] + x_level*y_range, legend = c("Fst (Pacifc vs Atlantic)"), lwd = 3, col = c("darkorchid"), cex = 0.8)
+  legend(x = par("usr")[1] + 0.22*x_range, y = par("usr")[3] + x_level*y_range, legend = c("High Fst block" , "High Fst & 8x Atl", "High Fst & 8x Pac"), pch = 20, pt.cex = 2, horiz = T, col = c( "steelblue", "darkorange3", "olivedrab3"), cex = 0.8)
+  legend(x = par("usr")[1] + 0.65*x_range, y = par("usr")[3] + x_level*y_range,legend = c("Atlantic introgressions", "Pacific introgressions"), lwd = 3, col = c("darkorange2", "olivedrab2"), horiz = T, cex = 0.8)
+  segments(x0 = cov_df1$start[cov_df1$group_name == target_chr], x1 = cov_df1$end[cov_df1$group_name == target_chr], y0 = cov_df1$cov[cov_df1$group_name == target_chr]/8, lwd = 3, col = "darkorange2")
+  segments(x0 = cov_df2$start[cov_df2$group_name == target_chr], x1 = cov_df2$end[cov_df2$group_name == target_chr], y0 = (cov_df2$cov[cov_df2$group_name == target_chr]/8)+0.02, lwd = 3, col = "olivedrab2")
+  target_blocks <- high_Fst_df$seqnames == target_chr & !high_Fst_df$T1_rec_overlap & !high_Fst_df$T2_rec_overlap
+  if(sum(target_blocks > 0)) segments(x0 = high_Fst_df$start[target_blocks], x1 = high_Fst_df$end[target_blocks], y0 = 1.15, lwd = 3, col = "steelblue")
+  target_blocks <- high_Fst_df$seqnames == target_chr & high_Fst_df$T1_rec_overlap
+  if(sum(target_blocks > 0)) segments(x0 = high_Fst_df$start[target_blocks ], x1 = high_Fst_df$end[target_blocks], y0 = 1.20, lwd = 4, col = "darkorange3")
+  target_blocks <- high_Fst_df$seqnames == target_chr & high_Fst_df$T2_rec_overlap
+  if(sum(target_blocks > 0)) segments(x0 = high_Fst_df$start[target_blocks ], x1 = high_Fst_df$end[target_blocks], y0 = 1.10, lwd = 4, col = "olivedrab3")
+  segments(x0 = full_Fst$BIN_START[full_Fst$chr == target_chr], x1 = full_Fst$BIN_END[full_Fst$chr == target_chr], y0 = full_Fst$AtlPac_Fst[full_Fst$chr == target_chr] + 1.3, lwd = 3, col = "darkorchid")
+  abline(h = Fst_cutoff + 1.3, col = "grey40")
+}
 
 complile_intro_lists <- function(intr_obj, win_df,  fuse_thresh = 2e5, assoc_t = 5){
   ratio_cols <- grep("ratio", names(intr_obj$dist))
@@ -1403,16 +1551,25 @@ introgression_plot_2 <- function(dist_df, sample_list,  snp_numbers, assoc_tresh
     if(assoc_dir == "down") {
       assoc_filter <- which(rv < mean_ratio/assoc_tresh) #which(rv > assoc_tresh | rv < 1/assoc_tresh)
     }
+    
+      
     hap_ratio_df[bf_hap, "pac"] <- sum(rv > mean_ratio*assoc_tresh, na.rm = T)
     hap_ratio_df[bf_hap, "atl"] <- sum(rv < mean_ratio/assoc_tresh, na.rm = T)
     bg_col_vec <- c("grey20", "grey80")[match(as.integer(as.factor(dist_df[, 1])), unique(as.integer(as.factor(dist_df[, 1]))))%%2 + 1]
-    points(y = log10(dist_df[-assoc_filter,paste(hap_ratio_df[bf_hap, "hap"], "_ratio", sep = "")]), x = dist_df[-assoc_filter,4], col = bg_col_vec[-assoc_filter], pch = 16, cex=0.2)
-    points(y = log10(dist_df[assoc_filter,paste(hap_ratio_df[bf_hap, "hap"], "_ratio", sep = "")]), x = dist_df[assoc_filter,4], col = rgb(t(col2rgb(bf_ind+1)), alpha = 120, maxColorValue = 255), pch = 15+hap_no, cex = 0.8)
+    if(assoc_dir != "none") {
+      points(y = log10(dist_df[-assoc_filter,paste(hap_ratio_df[bf_hap, "hap"], "_ratio", sep = "")]), x = dist_df[-assoc_filter,4], col = bg_col_vec[-assoc_filter], pch = 16, cex=0.2)
+      points(y = log10(dist_df[assoc_filter,paste(hap_ratio_df[bf_hap, "hap"], "_ratio", sep = "")]), x = dist_df[assoc_filter,4], col = rgb(t(col2rgb(bf_ind+1)), alpha = 120, maxColorValue = 255), pch = 15+hap_no, cex = 0.8)
+    }
+    if(assoc_dir == "none") {
+      points(y = log10(dist_df[,paste(hap_ratio_df[bf_hap, "hap"], "_ratio", sep = "")]), x = dist_df[,4], col = bg_col_vec, pch = 16, cex=0.2)
+    }
+  }
+  if(assoc_dir == "none") {
+    abline(h = log10(c(mean_ratio/assoc_tresh, assoc_tresh * mean_ratio)), lty = "dashed", col = "red", lwd = 2)
   }
   if (pdf_file != "")dev.off()
   return(list(dist = dist_df, hap= hap_ratio_df))
 }
-
 
 introgression_corr_plot <- function(intro_obj, sample_list, assoc_tresh = 100, pdf_file = "", snp_set = "signif", eps = 1e-3){
   
