@@ -35,9 +35,19 @@ h79_20k_w <- construct_window_annotation(herring_79$geno, interval = 2e4)
 hws6_dist_v2.0.2_20k_df <- introgression_contrast(target="HWS6", ref_1 = "A[MF][0-9]", ref_2 = "HWS1", w_df=h79_20k_w, sample_list=herring_79$sample_list, geno=herring_79$geno)
 save(hws6_dist_v2.0.2_20k_df, file = "~/Projects/Herring/data/v2.0.2_genotypes/hws6_introgression_df_v2.0.2_20k.Rdata")
 diff_SNP_count_vec <- rowSums(hws6_dist_v2.0.2_20k_df[,6:21])/length(6:21)*2
-hws6_v2.0.2_20k_intro <- introgression_plot_2(hws6_dist_v2.0.2_20k_df, sample_list=herring_79$sample_list, snp_numbers=diff_SNP_count_vec, pdf_file="~/Projects/Herring/doc/Balsfjord/HWS6_v2.0.2_20k_intro_recalc6.pdf", min_diff = 20, snp_cutoff = 50, assoc_tresh = 8, assoc_dir = "down")
-hws6_v2.0.2_20k_intro_plot <- introgression_plot_2(hws6_dist_v2.0.2_20k_df, sample_list=herring_79$sample_list, snp_numbers=diff_SNP_count_vec, pdf_file="~/Projects/Herring/doc/Balsfjord/HWS6_v2.0.2_20k_intro_no_highlight.pdf", min_diff = 20, snp_cutoff = 50, assoc_tresh = 8, assoc_dir = "none")
+hws6_v2.0.2_20k_intro <- introgression_plot_2(hws6_dist_v2.0.2_20k_df, sample_list=herring_79$sample_list, snp_numbers=diff_SNP_count_vec, pdf_file="~/Projects/Herring/doc/Balsfjord/HWS6_v2.0.2_20k_intro_recalc8.pdf", min_diff = 20, snp_cutoff = 50, assoc_tresh = 8, assoc_dir = "down")
+hws6_v2.0.2_20k_intro_plot <- introgression_plot_2(hws6_dist_v2.0.2_20k_df, sample_list=herring_79$sample_list, snp_numbers=diff_SNP_count_vec, pdf_file="~/Projects/Herring/doc/Balsfjord/HWS6_v2.0.2_20k_intro_no_highlight_ext_limit.pdf", min_diff = 20, snp_cutoff = 50, assoc_tresh = 8, assoc_dir = "none")
 
+save(intro_20k_lists, hws6_v2.0.2_20k_intro,diff_SNP_count_vec, file = "~/Projects/Herring/data/v2.0.2_genotypes/hws6_intro_lists.RData")
+
+tmp_ratio_vec <- unlist(hws6_v2.0.2_20k_intro$dist[,grep("_ratio", names(hws6_v2.0.2_20k_intro$dist))])
+#pdf(file = "~/Projects/Herring/doc/Balsfjord/HWS6_v2.0.2_20k_ratio_hist.pdf", width = 10)
+pdf(file = "~/Projects/Herring/doc/Balsfjord/HWS6_v2.0.2_20k_ratio_hist_mean.pdf", width = 10)
+hist(log10(tmp_ratio_vec), breaks = 100, ylab = "Number of windows", xlab = "log10(d_A/d_P)", main = "")
+abline(v = log10(12))
+abline(v = log10(0.18))
+abline(v = log10(1.45), lty = "dashed")
+dev.off()
 
 #White Sea sample
 hws3_dist_v2.0.2_20k_df <- introgression_contrast(target="HWS3", ref_1 = "A[MF][0-9]", ref_2 = "HWS1", w_df=h79_20k_w, sample_list=herring_79$sample_list, geno=herring_79$geno)
@@ -92,6 +102,8 @@ intro_haplotype_plot(intro_obj = hws6_v2.0.2_20k_intro, rec_profile = Ch_v2_reco
                      p_thresh = typical_dist*assoc_t,  a_thresh = typical_dist/assoc_t,
                      pdf_file = "~/Projects/Herring/doc/Balsfjord/HWS6_v2.0.2__20k_haps.pdf")
 
+
+
 #Recurring Atlantic regions
 recurring_intro_df <- atl_intro_cov_20k[atl_intro_cov_20k$cov == 8,c(2:4)]
 names(recurring_intro_df)[1] <- "seqnames"
@@ -137,6 +149,7 @@ chisq.test(x = matrix(data = c(length(rec_pac_exon_footprint), exp_n_exons_pac),
 
 save(rec_pac_genes, rec_genes, file = "~/Projects/Herring/data/Balsfjord/genes_in_recurring_intro_regions.Rdata")
 
+save(recurring_intro_GR,recurring_intro_pac_GR, file = "~/Projects/Herring/data/Balsfjord/recurring_intro_regions.Rdata")
 
 
 
@@ -167,7 +180,8 @@ weight_vec[grep("HWS", herring_79$sample_list)] <- 5
 weight_vec[grep("HWS14_Japan_SeaofJapan_2|HWS13_Japan_SeaofJapan_2", herring_79$sample_list)] <- 50
 weight_vec <- -weight_vec
 #rec_win_HapDist <- plot_top_regions_3(top_pos = rec_win_hits@from, win_df = h79_20k_w, geno = herring_79$geno, sample_list = herring_79$sample_list, plot_dir = "~/Projects/Herring/doc/Balsfjord/HapDist_v2.0.2/Reorder/", snp_col = "blue", dend_weight_vec = weight_vec)
-rec_win_HapDist <- plot_top_regions_3(top_pos = rec_win_hits@from, win_df = h79_20k_w, geno = herring_79$geno, sample_list = herring_79$sample_list, plot_dir = "~/Projects/Herring/doc/Balsfjord/HapDist_v2.0.2/Rec_win_div/", snp_col = "blue", dend_weight_vec = weight_vec)
+rec_win_HapDist <- plot_top_regions_3(top_pos = rec_win_hits@from, win_df = h79_20k_w, geno = herring_79$geno, sample_list = herring_79$sample_list, plot_dir = "~/Projects/Herring/doc/Balsfjord/HapDist_v2.0.2/Rec_win_div_replot/", snp_col = "blue", dend_weight_vec = weight_vec)
+#rec_win_HapDist <- plot_top_regions_3(top_pos = rec_win_hits@from, win_df = h79_20k_w, geno = herring_79$geno, sample_list = herring_79$sample_list, plot_dir = "~/Projects/Herring/doc/Balsfjord/HapDist_v2.0.2/Rec_win_div/", snp_col = "blue", dend_weight_vec = weight_vec)
 
 #Using the distance matrix to get within-group diveristy
 Atl_haps <- grep("Atlantic|Baltic", herring_79$sample_list, value = T)
@@ -193,7 +207,8 @@ pac_rec_win_hits <- findOverlaps(h79_20k_w_GR, recurring_intro_pac_GR) #Using re
 h79_20k_w_GR[pac_rec_win_hits@from]
 plot_top_regions_2(top_pos = pac_rec_win_hits@from, win_df = h79_20k_w, geno = herring_79$geno, sample_list = herring_79$sample_list, plot_dir = "~/Projects/Herring/doc/Balsfjord/HapDist_v2.0.2/Recurring_windows_pac/", snp_col = "blue")
 #Pac_rec_win_HapDist <- plot_top_regions_3(top_pos = 5849, win_df = h79_20k_w, geno = herring_79$geno, sample_list = herring_79$sample_list, plot_dir = "~/Projects/Herring/doc/Balsfjord/HapDist_v2.0.2/Reorder/", snp_col = "blue", dend_weight_vec = weight_vec)
-pac_rec_win_HapDist <- plot_top_regions_3(top_pos = pac_rec_win_hits@from, win_df = h79_20k_w, geno = herring_79$geno, sample_list = herring_79$sample_list, plot_dir = "~/Projects/Herring/doc/Balsfjord/HapDist_v2.0.2/Rec_win_div/", snp_col = "blue", dend_weight_vec = weight_vec)
+pac_rec_win_HapDist <- plot_top_regions_3(top_pos = pac_rec_win_hits@from, win_df = h79_20k_w, geno = herring_79$geno, sample_list = herring_79$sample_list, plot_dir = "~/Projects/Herring/doc/Balsfjord/HapDist_v2.0.2/Rec_win_div_replot/", snp_col = "blue", dend_weight_vec = weight_vec)
+#pac_rec_win_HapDist <- plot_top_regions_3(top_pos = pac_rec_win_hits@from, win_df = h79_20k_w, geno = herring_79$geno, sample_list = herring_79$sample_list, plot_dir = "~/Projects/Herring/doc/Balsfjord/HapDist_v2.0.2/Rec_win_div/", snp_col = "blue", dend_weight_vec = weight_vec)
 
 atl_div_vec_pac <- numeric()
 HWS_div_vec_pac <- numeric()
@@ -203,6 +218,8 @@ for(reg_loc in names(pac_rec_win_HapDist$dist_mat)){
   HWS_div_vec_pac[reg_loc] <- mean(pac_rec_win_HapDist$dist_mat[[reg_loc]][HWS_haps, HWS_haps], na.rm = T)/2e4
   dxy_vec_pac[reg_loc] <- mean(pac_rec_win_HapDist$dist_mat[[reg_loc]][Atl_haps, HWS_haps], na.rm = T)/2e4
 }
+
+save(pac_rec_win_HapDist, rec_win_HapDist, file = "~/Projects/Herring/data/Balsfjord/recurring_intro_HapDist.RData")
 
 bg_win_HapDist <- plot_top_regions_3(top_pos = sample(dim(h79_20k_w)[1], 1000), win_df = h79_20k_w, geno = herring_79$geno, sample_list = herring_79$sample_list, plot_dir = "~/Projects/Herring/doc/Balsfjord/HapDist_v2.0.2/Rec_win_div/background/", snp_col = "blue", dend_weight_vec = weight_vec)
 atl_div_vec_bg <- numeric()
@@ -581,6 +598,7 @@ tip_col_vec[grep("HWS2", tree$tip.label)] <- "olivedrab3"
 plot_tree <- tree 
 plot_tree$tip.label <- rep("\U2022", length(tree$tip.label))
 
+write.tree(tree, file = "~/Projects/Herring/doc/Balsfjord/pool_tree.newick")
 
 png(file = "~/Projects/Herring/doc/Balsfjord/pool_tree_dots.png", height = 1000, width = 1000)
 plot.phylo(plot_tree, type="unrooted", lab4ut = "axial", tip.color = tip_col_vec, cex = 3, edge.width = 2.5)
@@ -1015,7 +1033,7 @@ wilcox.test(PvA_GR$pac_intro_cov[unique(Mito_GO_gene_hits@to)], PvA_GR$pac_intro
 
 
 #Support functions
-pool_freq_hm_v3 <- function(freq_df, pdf_file = NULL, pool_order_vec, hm_col = c("blue4", "gold1"), margins = c(12,12), reg_name = NULL, row_lab_vec = NULL, ...){
+pool_freq_hm_v3 <- function(freq_df, pdf_file = NULL, pool_order_vec, hm_col = c("blue4", "gold1"), margins = c(12,12), reg_name = NULL, row_lab_vec = NULL, col_lab_vec = NULL, ...){
   if(!is.null(pdf_file)) {
     pdf(file = pdf_file, height = 10, width = 10)
   }
@@ -1025,12 +1043,16 @@ pool_freq_hm_v3 <- function(freq_df, pdf_file = NULL, pool_order_vec, hm_col = c
   }
   
   target_snp_id <- rownames(freq_df)
+  if(is.null(col_lab_vec)){
+    col_lab_vec <- rep("", length(target_snp_id))
+  }
+ 
   #pool_order_vec <- c(17, 12, 20, 6, 7, 8, 18, 5, 4, 21, 19, 10, 9, 3, 2, 11, 14, 15, 16, 13, 1)
   cr <- colorRamp(hm_col)
   crp = colorRampPalette(colors = hm_col)(500)
   col_colors <- rep("black", dim(freq_df)[1])
   col_colors[freq_df$NonSyn] <- "darkorchid"
-  heatmap(t(as.matrix(freq_df[,pool_order_vec])), scale = "none", Colv = NA, Rowv = NA, labCol = rep("", length(target_snp_id)), labRow = row_lab_vec, col = crp, margins = margins, ...) #ColSideColors = col_colors
+  heatmap(t(as.matrix(freq_df[,pool_order_vec])), scale = "none", Colv = NA, Rowv = NA, labCol = col_lab_vec, labRow = row_lab_vec, col = crp, margins = margins, ...) #ColSideColors = col_colors
   scale_x_vec <- seq(from = par("usr")[1], to = par("usr")[2]*0.5, length.out = 505)
   rect(ybottom = par("usr")[3] - (par("usr")[4]-par("usr")[3])*0.00, xleft = scale_x_vec[-(501:505)], ytop = par("usr")[3] + (par("usr")[4] - par("usr")[3])*0.02, xright =  scale_x_vec[-(1:5)], col = rgb(cr((1:500)/500), maxColorValue=255), border = NA)
   text(x=scale_x_vec[c(10,253,505)], y = par("usr")[3] - (par("usr")[4]-par("usr")[3])*0.04, labels = paste0(c(0, 50, 100), "%"))
@@ -1424,9 +1446,9 @@ complile_intro_lists <- function(intr_obj, win_df,  fuse_thresh = 2e5, assoc_t =
         ranges =  IRanges(start = win_df$start[p_win], end = win_df$stop[p_win])
       )
     a_GR_list[[hap_name]] <- a_GR
-    a_GR_red_list[[hap_name]] <- reduce(a_GR, min.gapwidth = fuse_thresh)
+    a_GR_red_list[[hap_name]] <- GenomicRanges::reduce(a_GR, min.gapwidth = fuse_thresh)
     p_GR_list[[hap_name]] <- p_GR
-    p_GR_red_list[[hap_name]] <- reduce(p_GR, min.gapwidth = fuse_thresh)
+    p_GR_red_list[[hap_name]] <- GenomicRanges::reduce(p_GR, min.gapwidth = fuse_thresh)
   }
   return(list(atl = a_GR_list, atl_red = a_GR_red_list, pac = p_GR_list, pac_red = p_GR_red_list))
 }
@@ -1525,7 +1547,7 @@ introgression_plot_2 <- function(dist_df, sample_list,  snp_numbers, assoc_tresh
   target <- sub("[0-9][._].+", "", names(dist_df)[6])
   if (pdf_file != "") pdf(file = pdf_file, width = 15, height = 5)
   target_haps <- grep(target, sample_list)
-  plot(x= 1, y=1, xlim = c(0,max(dist_df[,4])), ylim = c(log10(eps)-1, -log10(eps)+1), type = "n", main = paste(target,"x vs Atlantic & Sea of Japan", sep = ""), xlab = "Cumulative position", ylab = "Log10 of distance ratio")
+  plot(x= 1, y=1, xlim = c(0,max(dist_df[,4])), ylim = c(log10(eps)-2, -log10(eps)+2), type = "n", main = paste(target,"x vs Atlantic & Sea of Japan", sep = ""), xlab = "Cumulative position", ylab = "Log10 of distance ratio")
   hap_ratio_df <- data.frame(hap = sample_list[target_haps], stringsAsFactors= F)
   #assoc_tresh <- 100
   #snp_cutoff <- 200

@@ -131,7 +131,7 @@ region_age_estimation <- function(region_GR, intro_list = intro_20k_lists$atl_re
   return(list(block_size = block_size_df, age_est_vec =  age_est_vec, reg_intros = target_intros))
 }
 
-#Version that uses the recombiation profile inseted, calibrated by the lenght of the linkage map 
+#Version that uses the recombiation profile instead, calibrated by the lenght of the linkage map 
 simulate_linkage_breakdown <- function(sim_linkage_prof,focus_pos, n_gen = 100, phys_size = NULL, draw_plot = F){
   rec_df <- data.frame(rec_pos = 1:n_gen, lower_bp = NA, upper_bp = NA, size = NA)
   lower_bp <- 0
